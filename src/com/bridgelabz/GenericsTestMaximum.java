@@ -15,6 +15,9 @@ public class GenericsTestMaximum {
     } // end method maximum
 
     public static void main(String args[]) {
+        System.out.printf("Maximum of %d, %d and %d is %d\n\n", 5, 4, 3, maximum(5, 4, 3));
+        System.out.printf("Maximum of %.1f, %.1f and %.1f is %.1f\n\n", 6.6, 8.8, 7.7, maximum(6.6,
+                8.8, 7.7));
         System.out.printf("Maximum of %s, %s and %s is %s\n", "Apple", "Peach", "Banana", maximum(
                 "Apple", "Peach", "Banana"));
 

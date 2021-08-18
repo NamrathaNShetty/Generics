@@ -21,6 +21,7 @@ public class GenericsTestMaximum<T extends Comparable<T>> {
         }
         return max;
     }
+         //Printing the maximum
         public static void main(String[] args) {
             System.out.println("Integer Max: " + max(Integer.valueOf(32), Integer.valueOf(56), Integer.valueOf(89), Integer.valueOf(3), Integer.valueOf(456), Integer.valueOf(78), Integer.valueOf(45)));
             System.out.println("Double Max: " + max(Double.valueOf(5.6), Double.valueOf(7.8), Double.valueOf(2.9), Double.valueOf(18.6), Double.valueOf(10.25), Double.valueOf(18.6001)));

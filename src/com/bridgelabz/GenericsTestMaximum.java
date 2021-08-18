@@ -1,36 +1,33 @@
 package com.bridgelabz;
 
-    public class GenericsTestMaximum<T extends Comparable<T>> {
-        T x;
-        T y;
-        T z;
+import java.util.Arrays;
+
+public class GenericsTestMaximum<T extends Comparable<T>> {
+        T elements;
 
         //Constructor
-        public GenericsTestMaximum(T x, T y, T z) {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+        public GenericsTestMaximum(T elements) {
+            this.elements = elements;
+
         }
-    // determines the largest of three Comparable objects
-    public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
-        T max = x; // assume x is initially the largest
+    // determines the largest of Comparable objects
+    public static <T extends Comparable<T>> T max(T... elements) {
+            Arrays.sort(elements);
+            T max = elements[0];
+        for (T element : elements) {
+            if (element.compareTo(max) > 0) {
+                max = element;
+            }
+        }
+        return max;
+    }
+        public static void main(String[] args) {
+            System.out.println("Integer Max: " + max(Integer.valueOf(32), Integer.valueOf(56), Integer.valueOf(89), Integer.valueOf(3), Integer.valueOf(456), Integer.valueOf(78), Integer.valueOf(45)));
+            System.out.println("Double Max: " + max(Double.valueOf(5.6), Double.valueOf(7.8), Double.valueOf(2.9), Double.valueOf(18.6), Double.valueOf(10.25), Double.valueOf(18.6001)));
+            System.out.println("String Max: " + max("Strawberry", "Mango", "Apple", "Pomegranate", "Guava", "Blackberry", "Cherry", "Orange", "Date"));
 
-        if (y.compareTo(max) > 0)
-            max = y; // y is the largest so far
-
-        if (z.compareTo(max) > 0)
-            max = z; // z is the largest
-
-        return max; // returns the largest object
-    } // end method maximum
-
-    public static void main(String args[]) {
-        System.out.printf("Maximum of %d, %d and %d is %d\n\n", 5, 4, 3, maximum(5, 4, 3));
-        System.out.printf("Maximum of %.1f, %.1f and %.1f is %.1f\n\n", 6.6, 8.8, 7.7, maximum(6.6,
-                8.8, 7.7));
-        System.out.printf("Maximum of %s, %s and %s is %s\n", "Apple", "Peach", "Banana", maximum(
-                "Apple", "Peach", "Banana"));
+        }
 
     }
-}
+
 

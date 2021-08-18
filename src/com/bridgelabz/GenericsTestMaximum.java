@@ -1,6 +1,16 @@
 package com.bridgelabz;
 
-public class GenericsTestMaximum {
+    public class GenericsTestMaximum<T extends Comparable<T>> {
+        T x;
+        T y;
+        T z;
+
+        //Constructor
+        public GenericsTestMaximum(T x, T y, T z) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
     // determines the largest of three Comparable objects
     public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
         T max = x; // assume x is initially the largest
